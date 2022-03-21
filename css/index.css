@@ -1,0 +1,23 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #181818;
+    color: #DFE1E0;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    min-height: 600px;
+    margin: 30px;
+    padding: 40px;
+    background: linear-gradient(45deg, black, white);
+    border-radius: 30px;
+    box-shadow: 2px 2px 2px 1px rgba(255, 255, 255, 0.2);
+}
