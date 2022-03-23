@@ -1,5 +1,12 @@
 <?php include("./includes/header.php") ?>
-<h1>MYSSD</h1>
+<div class="header">
+    <h1 id="nav-title"><a href="#">MYSSD</a></h1>
+    <nav>
+        <ul>
+            <li><a href="#">Inicio</a></li>
+        </ul>
+    </nav>
+</div>
 <main class="main">
     <div class="container">
         <div class="wrapper">
@@ -19,7 +26,7 @@
                  <div class="content">
                      <h2>' . $i + 1 . '</h2>
                      <h3>' .$simulation[$i][0]. '</h3>
-                     <a href=""simulations/'.$simulation[$i][1].' ">Probar simulación</a>
+                     <a href=""simulations/'.$simulation[$i][1].' class="button-29" ">Probar simulación</a>
                  </div>
              </div>';
                 }

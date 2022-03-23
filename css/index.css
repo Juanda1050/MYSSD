@@ -5,13 +5,13 @@
 }
 
 body {
-  background-color: #161623;
+  background-color: #3d3d4c;
   color: #dfe1e0;
   font-family: "Roboto", sans-serif;
   min-height: 100vh;
 }
 
-main{
+main {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,7 +43,7 @@ h1 {
   flex-grow: 1;
   box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
   border-radius: 15px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(40, 41, 70, 0.2);
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -75,22 +75,42 @@ h1 {
 }
 
 .container .card .content a {
-  position: relative;
-  display: inline-block;
-  padding: 10px 20px;
   margin-top: 20px;
-  background: linear-gradient(90deg, #2792ea, #00d4ff);
-  color: black;
-  border-radius: 20px;
+  align-items: center;
+  background-image: radial-gradient(
+    100% 100% at 100% 0,
+    #5adaff 0,
+    #5468ff 100%
+  );
+  border-radius: 8px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  height: 48px;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
   text-decoration: none;
-  font-weight: 500;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.15s, transform 0.15s;
+  font-size: 18px;
 }
 
 .container .card .content a:hover {
-  transition: 0.2s;
-  background: linear-gradient(270deg, #020024, #2792ea);
-  color: white;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.container .card .content a:focus {
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+
+.container .card .content a:active {
+  box-shadow: #3c4fe0 0 3px 7px inset;
+  transform: translateY(2px);
 }
 
 @media screen and (max-width: 900px) {

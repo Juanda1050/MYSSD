@@ -1,0 +1,30 @@
+#nav-title {
+    margin-right: auto;
+    font-size: 1.5em;
+}
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 50px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    margin-bottom: 40px;
+    background: #161623;
+}
+
+.header li {
+    list-style: none;
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.header a {
+    text-decoration: none;
+    color: #dfe1e0;
+    transition: all 0.3s ease 0s;
+}
+
+.header a:hover {
+    color: #3D3D4C;
+}
