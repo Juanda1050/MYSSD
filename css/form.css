@@ -88,7 +88,7 @@
 }
 
 table {
-  margin-top: 40px;
+  margin: 20px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
@@ -132,4 +132,8 @@ table:nth-last-child(1) {
 .result-wrapper {
   padding: 20px;
   margin: 20px;
+  font-size: 18px;
+  flex-direction: column;
+  align-items: center;
+  line-height: 30px;
 }

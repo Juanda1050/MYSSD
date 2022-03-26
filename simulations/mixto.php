@@ -16,12 +16,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $semilla = get_input($_POST["semilla"]);
     $aditiva = get_input($_POST["aditiva"]);
     $modulo = get_input($_POST["modulo"]);
-} else {
-    $_POST = array();
 }
 
-function get_input($data)
-{
+function get_input($data) {
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
@@ -35,19 +32,19 @@ function get_input($data)
             <form class="form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                 <div class="form-line">
                     <label for="constante_a">Constante multiplicativa (a)</label>
-                    <input type="number" id="a" name="multiplicativa" value="<?php echo $multiplicativa; ?>" placeholder="Valor de a" required>
+                    <input type="number" id="a" name="multiplicativa" value="<?php echo $multiplicativa; ?>" onfocus="this.value=''" placeholder="Valor de a" required>
                 </div>
                 <div class="form-line">
                     <label for="semilla_xo">Semilla inicial (X₀)</label>
-                    <input type="number" id="xo" name="semilla" value="<?php echo $semilla; ?>" placeholder="Valor de X₀" required>
+                    <input type="number" id="xo" name="semilla" value="<?php echo $semilla; ?>" onfocus="this.value=''" placeholder="Valor de X₀" required>
                 </div>
                 <div class="form-line">
                     <label for="constante_c">Constante aditiva (c)</label>
-                    <input type="number" id="c" name="aditiva" value="<?php echo $aditiva; ?>" placeholder="Valor de c" required>
+                    <input type="number" id="c" name="aditiva" value="<?php echo $aditiva; ?>" onfocus="this.value=''" placeholder="Valor de c" required>
                 </div>
                 <div class="form-line">
                     <label for="modulo_m">Módulo (m)</label>
-                    <input type="number" id="m" name="modulo" value="<?php echo $modulo; ?>" placeholder="Valor de m" required>
+                    <input type="number" id="m" name="modulo" value="<?php echo $modulo; ?>" onfocus="this.value=''" placeholder="Valor de m" required>
                 </div>
                 <div class="form-button">
                     <input class="button" type="submit" name="submit" value="Calcular">
@@ -55,12 +52,12 @@ function get_input($data)
             </form>
         </div>
     </div>
-        <?php
-        $i = 0;
-        $n = 1;
-        $aux_semilla = $semilla;
-        if (isset($_POST['submit'])) {
-            echo '<table class="form-wrapper">
+    <?php
+    $i = 0;
+    $n = 1;
+    $aux_semilla = $semilla;
+    if (isset($_POST['submit'])) {
+        echo '<table class="form-wrapper">
             <tr>
             <th>n</th>
             <th>X₀</th>
@@ -68,40 +65,40 @@ function get_input($data)
             <th>Xn + 1</th>
             <th>Numeros Rectangulares</th>
         </tr>';
-        
-            do {
-                $solution = (($multiplicativa * $semilla) + $aditiva) / $modulo;
-                $semilla_generada = (($multiplicativa * $semilla) + $aditiva) % $modulo;
-                $num_rectangulares = $semilla_generada / $modulo;
-                echo '<tr>
+
+        do {
+            $solution = (($multiplicativa * $semilla) + $aditiva) / $modulo;
+            $semilla_generada = (($multiplicativa * $semilla) + $aditiva) % $modulo;
+            $num_rectangulares = $semilla_generada / $modulo;
+            echo '<tr>
             <td>' . $n . '</td>
             <td>' . $semilla . '</td>
             <td>' . round($solution) . ' + ' . $semilla_generada . ' / ' . $modulo . '</td>
             <td>' . $semilla_generada . '</td>
             <td>' . $semilla_generada . ' / ' . $modulo . ' = ' . round($num_rectangulares, 5) . '</td>
             </tr>';
-                $semilla = $semilla_generada;
-                $n = $n + 1;
-                if ($semilla_generada == $aux_semilla) {
-                    $i = $modulo;
-                } else if ($n > $modulo) {
-                    $i = $modulo;
-                }
-            } while ($i != $modulo);
+            $semilla = $semilla_generada;
+            $n = $n + 1;
+            if ($semilla_generada == $aux_semilla) {
+                $i = $modulo;
+            } else if ($n > $modulo) {
+                $i = $modulo;
+            }
+        } while ($i != $modulo);
 
-            echo "</table>";
+        echo "</table>";
 
-            if ($aux_semilla == $semilla_generada && $n - 1 == $modulo) {
-                echo '<div class="form-wrapper result-wrapper">
+        if ($aux_semilla == $semilla_generada && $n - 1 == $modulo) {
+            echo '<div class="form-wrapper result-wrapper">
                             <h4>Generador Congruencial Mixto Confible</h4>
                         </div>';
-            } else {
-                echo '<div class="form-wrapper result-wrapper">
+        } else {
+            echo '<div class="form-wrapper result-wrapper">
                                 <h4>Generador Congruencial Mixto No Confible</h4>
                             </div>';
-            }
         }
-        ?>
+    }
+    ?>
 </main>
 
 <?php include("../includes/footer.php") ?>

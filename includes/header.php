@@ -10,3 +10,6 @@
     <title>MYSSD</title>
 </head>
 <body>
+<div class="header">
+    <h1 id="nav-title"><a href="#">MYSSD</a></h1>
+</div>
