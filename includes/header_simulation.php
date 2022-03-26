@@ -13,3 +13,11 @@
 </head>
 
 <body>
+    <div class="header">
+        <h1 id="nav-title"><a href="#"><?php echo $nav_title; ?></a></h1>
+        <nav>
+            <ul>
+                <li><a href="../index.php">Inicio</a></li>
+            </ul>
+        </nav>
+    </div>
