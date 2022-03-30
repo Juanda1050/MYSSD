@@ -26,22 +26,25 @@ function get_input($data)
 ?>
 
 <main class="form-main">
+    <div class="form-wrapper result-wrapper">
+        <a href="../simulations/kolmogorov_manual.php"><h4>Prueba Estadístico de Kolmogorov-Smirnov manual</h4></a>
+    </div>
     <div class="form-wrapper">
-        <div class="form-container">
-            <form class="form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-                <div class="form-line">
-                    <label for="num_rectangulares">Cantidad de números rectangulares</label>
-                    <input type="number" id="num" name="num_rectangulares" table_value="<?php echo $num_rectangulares; ?>" placeholder="Valor en enteros" required>
-                </div>
-                <div class="form-line">
-                    <label for="alfa">Valor porcentual de alfa (α)</label>
-                    <input type="number" id="alfa" name="alfa" table_value="<?php echo $alfa; ?>" placeholder="Valor de α" required>
-                </div>
-                <div class="form-button">
-                    <input class="button" type="submit" name="submit" table_value="Calcular">
-                </div>
-            </form>
-        </div>
+    <div class="form-container">
+        <form class="form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <div class="form-line">
+                <label for="num_rectangulares">Cantidad de números rectangulares</label>
+                <input type="number" id="num" name="num_rectangulares" value="<?php echo $num_rectangulares; ?>" placeholder="Valor en enteros" required>
+            </div>
+            <div class="form-line">
+                <label for="alfa">Valor porcentual de alfa (α)</label>
+                <input type="number" id="alfa" name="alfa" value="<?php echo $alfa; ?>" placeholder="Valor de α" required>
+            </div>
+            <div class="form-button">
+                <input class="button" type="submit" name="submit" value="Calcular">
+            </div>
+        </form>
+    </div>
     </div>
     <?php
     $random_num = array();
@@ -84,89 +87,86 @@ function get_input($data)
 
         if ($alfa == 10) {
             staticResult_alfa10($num_rectangulares, $max_Dn);
-        }
-        else if ($alfa == 5){
+        } else if ($alfa == 5) {
             staticResult_alfa5($num_rectangulares, $max_Dn);
-        }
-        else if ($alfa == 1){
+        } else if ($alfa == 1) {
             staticResult_alfa1($num_rectangulares, $max_Dn);
-        }
-        else{
+        } else {
             echo '<div class="form-wrapper result-wrapper">
                 <h4>Alfa no existente</h4>
             </div>';
         }
     }
-    
-    function staticResult_alfa10($num_rectangulares, $max_Dn){
+
+    function staticResult_alfa10($num_rectangulares, $max_Dn)
+    {
         include("../includes/estadistico_kolmogorov.php");
         foreach ($alfa_10 as $n => $estadistico) {
             if ($n == $num_rectangulares) {
                 $table_value = $estadistico;
                 echo '<div class="form-wrapper result-wrapper">
-                            <h4>Valor mayor de estadisticos calculados: '.$max_Dn.'</h4>
-                            <h4>Estadistico de tablas: '.$table_value.'</h4>
-                            <h4>'.$max_Dn.' < '. $table_value .'</h4>
+                            <h4>Valor mayor de estadisticos calculados: ' . $max_Dn . '</h4>
+                            <h4>Estadistico de tablas: ' . $table_value . '</h4>
+                            <h4>' . $max_Dn . ' < ' . $table_value . '</h4>
                             </div>';
             }
         }
 
-        if ($max_Dn < $table_value){
+        if ($max_Dn < $table_value) {
             echo '<div class="form-wrapper result-wrapper">
                 <h4>Los números son aceptados</h4>
             </div>';
-        }
-        else{
+        } else {
             echo '<div class="form-wrapper result-wrapper">
                 <h4>Los números no son aceptados</h4>
             </div>';
         }
     }
 
-    function staticResult_alfa5($num_rectangulares, $max_Dn){
+    function staticResult_alfa5($num_rectangulares, $max_Dn)
+    {
         include("../includes/estadistico_kolmogorov.php");
         foreach ($alfa_5 as $n => $estadistico) {
             if ($n == $num_rectangulares) {
                 $table_value = $estadistico;
                 echo '<div class="form-wrapper result-wrapper">
-                            <h4>Valor mayor de estadisticos calculados: '.$max_Dn.'</h4>
-                            <h4>Estadistico de tablas: '.$table_value.'</h4>
-                            <h4>'.$max_Dn.' < '. $table_value .'</h4>
+                            <h4>Valor mayor de estadisticos calculados: ' . $max_Dn . '</h4>
+                            <h4>Estadistico de tablas: ' . $table_value . '</h4>
+                            <h4>' . $max_Dn . ' < ' . $table_value . '</h4>
                             </div>';
             }
         }
 
-        if ($max_Dn < $table_value){
+        if ($max_Dn < $table_value) {
             echo '<div class="form-wrapper result-wrapper">
                 <h4>Los números son aceptados</h4>
             </div>';
-        }
-        else{
+        } else {
             echo '<div class="form-wrapper result-wrapper">
                 <h4>Los números no son aceptados</h4>
             </div>';
         }
     }
 
-    function staticResult_alfa1($num_rectangulares, $max_Dn){
+    function staticResult_alfa1($num_rectangulares, $max_Dn)
+    {
         include("../includes/estadistico_kolmogorov.php");
         foreach ($alfa_1 as $n => $estadistico) {
             if ($n == $num_rectangulares) {
                 $table_value = $estadistico;
                 echo '<div class="form-wrapper result-wrapper">
-                            <h4>Valor mayor de estadisticos calculados: '.$max_Dn.'</h4>
-                            <h4>Estadistico de tablas: '.$table_value.'</h4>
-                            <h4>'.$max_Dn.' < '. $table_value .'</h4>
+                            <h4>Valor mayor de estadisticos calculados: ' . $max_Dn . '</h4>
+                            <h4>Estadistico de tablas: ' . $table_value . '</h4>
+                            <h4>' . $max_Dn . ' < ' . $table_value . '</h4>
                             </div>';
             }
         }
 
-        if ($max_Dn < $table_value){
+        if ($max_Dn < $table_value) {
             echo '<div class="form-wrapper result-wrapper">
                 <h4>Los números son aceptados</h4>
             </div>';
-        }
-        else{
+        } else {
             echo '<div class="form-wrapper result-wrapper">
                 <h4>Los números no son aceptados</h4>
             </div>';

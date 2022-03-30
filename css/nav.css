@@ -19,12 +19,12 @@
     padding: 0 20px;
 }
 
-.header a {
+a {
     text-decoration: none;
     color: #dfe1e0;
     transition: all 0.3s ease 0s;
 }
 
-.header a:hover {
-    color: #3D3D4C;
+a:hover {
+    color: #7386FF;
 }
