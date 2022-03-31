@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/index.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/form.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/nav.css?v=<?php echo time(); ?>">
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <title>%TITLE%</title>
 </head>
 

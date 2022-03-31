@@ -36,7 +36,7 @@ function get_input($data)
             <form class="form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                 <div class="form-line">
                     <label for="num_rectangulares">Números rectangulares</label>
-                    <input type="number" id="num" name="num_rectangulares" value="<?php echo $num_rectangulares; ?>" placeholder="Valor en enteros" required>
+                    <input type="number" id="num_rectangulares" name="num_rectangulares" value="" placeholder="Valor en enteros" required>
                 </div>
                 <div class="form-button">
                     <input class="add-button" type="submit" name="add" value="Agregar" onclick="addNumber()">
@@ -51,16 +51,20 @@ function get_input($data)
             </form>
         </div>
     </div>
-    <?php
-    $number_list = [];
-        if (isset($_POST['add'])){
-            array_push($number_list, $num_rectangulares);
-            foreach ($number_list as $num) {
-                echo $num . "<br>"; 
-             }
-             print_r($number_list);
-        }
-    ?>
+    <h6>Muestra:</h6>
+            <div id="print_num" class="mb-2"></div>
+    <script src="../includes/num_manual.js"></script>
+
+    <!-- <?php
+    // $number_list = [];
+    //     if (isset($_POST['add'])){
+    //         array_push($number_list, $num_rectangulares);
+    //         foreach ($number_list as $num) {
+    //             echo $num . "<br>"; 
+    //          }
+    //          print_r($number_list);
+    //     }
+    ?> -->
 </main>
 
 <?php include("../includes/footer.php") ?>
