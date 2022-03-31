@@ -33,10 +33,10 @@ function get_input($data)
     </div>
     <div class="form-wrapper">
         <div class="form-container">
-            <form class="form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <form class="form" method="post" id="myform" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                 <div class="form-line">
                     <label for="num_rectangulares">Números rectangulares</label>
-                    <input type="number" id="num_rectangulares" name="num_rectangulares" value="" placeholder="Valor en enteros" required>
+                    <input type="number" id="num_rectangulares" name="num_rectangulares" value="<?php echo $num_rectangulares?>" placeholder="Valor en enteros" required>
                 </div>
                 <div class="form-button">
                     <input class="add-button" type="submit" name="add" value="Agregar" onclick="addNumber()">
@@ -52,19 +52,19 @@ function get_input($data)
         </div>
     </div>
     <h6>Muestra:</h6>
-            <div id="print_num" class="mb-2"></div>
-    <script src="../includes/num_manual.js"></script>
+    <div id="print_num" class="mb-2"></div>
 
-    <!-- <?php
-    // $number_list = [];
-    //     if (isset($_POST['add'])){
-    //         array_push($number_list, $num_rectangulares);
-    //         foreach ($number_list as $num) {
-    //             echo $num . "<br>"; 
-    //          }
-    //          print_r($number_list);
-    //     }
-    ?> -->
+    <script type="text/javascript" src="../includes/num_manual.js"></script>
+
+    <?php
+    if (isset($_POST['add'])) {
+        $list_num_rectangulares = json_decode($_POST['jsonString'], true);
+        print_r($list_num_rectangulares);
+        foreach ($list_num_rectangulares as $num) {
+            echo $num . "<br>";
+        }
+        $count = count($list_num_rectangulares);
+    }
+    ?>
 </main>
-
 <?php include("../includes/footer.php") ?>
